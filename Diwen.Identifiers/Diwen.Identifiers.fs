@@ -57,13 +57,27 @@ module Check =
         |> calculateWeightedSum
         |> (fun sum -> (10 - (sum % 10)) % 10)
 
+    let calculateLEICheckCharacter (value: string) = 
+        convertLettersToDigits value + "00"
+        |> int
+        |> (fun i -> 98 - i % 54)
+        |> string 
+
     let isISINCheckCharacter (value: string) = 
         int value.[value.Length-1] - (int '0') = calculateISINCheckCharacter value.[0..value.Length-2]
 
-    let isISINCode (value: string) =
+    let isLEICheckCharacter (value: string) = 
+        value.[value.Length-2..] = calculateLEICheckCharacter value.[..value.Length-3]
+
+    let isISIN (value: string) =
         value.Length = 12
         && isCountryCode value.[0..1]
         && isNSINCode value.[2..10]
         && isDigit value.[11]
         && isISINCheckCharacter value  
     
+    let isLEI (value: string) = 
+        value.Length = 20
+        && String.forall isUpperCaseLetterOrDigit value
+        && value.[4..5] = "00"
+        && isLEICheckCharacter value
