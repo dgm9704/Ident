@@ -8,4 +8,7 @@ open Diwen.Identifiers
 // FI0000000003
 
 // Correct LEI codes:
-// 00000000000000000098
+// 00000000000000000098    
+
+// Correct WorksiteKey
+// TAFISTVOY0001B  
