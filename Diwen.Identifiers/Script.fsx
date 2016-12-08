@@ -11,4 +11,5 @@ open Diwen.Identifiers
 // 00000000000000000098    
 
 // Correct WorksiteKey
-// TAFISTVOY0001B  
+// TAFISTVOY0001B
+// http://download.personec.com/fi/tikon/tikon640/Ohjeistus/Ohjelmistomuutokset/Muutokset_Tikon_versioon_6.4.0.pdf
